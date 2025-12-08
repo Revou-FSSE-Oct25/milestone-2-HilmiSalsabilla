@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Clicker - RevoFun Gaming</title>
+    <link rel="stylesheet" href="../assets/css/games.css">
+</head>
+<body class="game-page">
+    <!-- header -->
+    <header class="game-header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>RevoFun</h1>
+            </div>
+            <a href="../index.html" class="back-button">← Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- main game container -->
+    <main class="game-container">
+        <section class="game-content">
+            <h2>Speed Clicker 👆</h2>
+
+            <!-- game instructions -->
+            <article class="game-instructions">
+                <h3>How to Play:</h3>
+                <ul>
+                    <li>Click the big button as many times as you can</li>
+                    <li>You have 10 seconds to get the highest score</li>
+                    <li>Your score increases with each click</li>
+                    <li>Try to beat your high score!</li>
+                </ul>
+            </article>
+
+            <!-- game stats -->
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Score: </span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">Time: </span>
+                    <span id="timer" class="stat-value">10</span>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">High Score: </span>
+                    <span id="high-score" class="stat-value">0</span>
+                </div>
+            </div>
+            
+            <!-- game area -->
+            <div class="game-area">
+                <div class="game-status" id="game-status">
+                    <p>Click "Start Game" to begin!</p>
+                </div>
+
+                <button id="click-button" class="click-button" disabled>
+                    Click Me!
+                </button>
+
+                <div class="game-controls">
+                    <button id="start-button" class="control-button primary">Start Game</button>
+                    <button id="reset-button" class="control-button secondary">Reset Score</button>
+                </div>
+            </div>
+
+            <!-- result modal -->
+            <div id="result-modal" class="modal hidden">
+                <div class="modal-content">
+                    <h3>Time's Up! 🎉</h3>
+                    <p>Your Score: <strong id="final-score">0</strong></p>
+                    <p id="new-record" class="new-record hidden">🏆 New High Score!</p>
+
+                    <div class="modal-actions">
+                        <button id="play-again" class="control-button primary">Play Again</button>
+                        <a href="../index.html" class="control-button secondary">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="game-footer">
+        <p>&copy; 2025 RevoFun Gaming. All rights reserved.</p>
+    </footer>
+
+    <!-- js -->
+    <script src="../assets/js/clicker-game.js"></script>
+</body>
+</html>
