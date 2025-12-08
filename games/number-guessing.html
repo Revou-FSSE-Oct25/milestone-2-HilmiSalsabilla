@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing - RevoFun Gaming</title>
+    <link rel="stylesheet" href="../assets/css/games.css">
+</head>
+<body class="game-page">
+    <!-- header -->
+    <header class="game-header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>RevoFun</h1>
+            </div>
+
+            <a href="../index.html" class="back-button">← Back to Home</a>
+        </nav>
+    </header>
+    
+    <!-- main game container -->
+    <main class="game-container">
+        <section class="game-content">
+            <h2>Number Guessing Game 🎯</h2>
+
+            <!-- game instruction -->
+            <article class="game-instructions">
+                <h3>How to Play:</h3>
+                <ul>
+                    <li>The computer has selected a secret number between 1 and 100</li>
+                    <li>You have 10 attempts to guess the number</li>
+                    <li>After each guess, you'll get a hint: "Too High" or "Too Low"</li>
+                    <li>Try to guess the number in as few attempts as possible!</li>
+                </ul>
+            </article>
+
+            <!-- game stats -->
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Attempt Left: </span>
+                    <span id="attempts" class="stat-value">10</span>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">Range: </span>
+                    <span id="range" class="stat-value">1 - 100</span>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">Best Score: </span>
+                    <span id="best-score" class="stat-value">-</span>
+                </div>
+            </div>
+
+            <!-- game area -->
+            <div class="game-area">
+                <div id="game-status" class="game-status">
+                    <p>Make your first guess!</p>
+                </div>
+
+                <div class="guess-container">
+                    <form id="guess-form">
+                        <label for="guess-input">Enter your guess (1-100): </label>
+                        <input 
+                            type="number" 
+                            id="guess-input"
+                            min="1"
+                            max="100"
+                            placeholder="50"
+                            required
+                            autofocus
+                        >
+                        <button type="submit" class="control-button primary">Submit Guess</button>
+                    </form>
+                </div>
+
+                <div id="hint-message" class="hint-message"></div>
+
+                <div id="guess-history" class="guess-history">
+                    <h4>Your Guess: </h4>
+                    <ul id="guess-list">
+                        <!-- list of previous guess will be display here -->
+                    </ul>
+                </div>
+
+                <div class="game-controls">
+                    <button id="new-game" class="control-button secondary">New Game</button>
+                </div>
+            </div>
+
+            <!-- result modal -->
+            <div id="result-modal" class="modal hidden">
+                <div class="modal-content">
+                    <h3 id="result-title">Congratulations! 🎉</h3>
+                    <p id="result-message">You guessed the number!</p>
+                    <p>The number was: <strong id="secret-number">0</strong></p>
+                    <p>Attempts used: <strong id="attempts-used">0</strong></p>
+                    <p id="new-record" class="new-record hidden">🏆 New Best Score!</p>
+                    <div class="modal-actions">
+                        <button id="play-again" class="control-button primary">Play Again</button>
+                        <a href="../index.html" class="control-button secondary">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2025 RevoFun Gaming. All rights reserved.</p>
+    </footer>
+
+    <!-- custom js -->
+    <script src="../assets/js/number-guessing.js"></script>
+</body>
+</html>
