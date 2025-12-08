@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rock Paper Scissors - Challenge the computer!">
+    <meta name="keywords" content="rock paper scissors, classic game, browser game, strategy game">
+    <meta name="author" content="RevoFun Gaming">
+
+    <title>Rock Paper Scissors - RevoFun Gaming</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/games.css">
+</head>
+<body class="game-page">
+    <!-- header -->
+    <header class="game-header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Game navigation">
+            <div class="logo">
+                <h1>RevoFun</h1>
+            </div>
+
+            <a href="../index.html" class="back-button" role="button" aria-label="Go back to home page">← Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- main game container -->
+    <main class="game-container" role="main">
+        <article class="game-content">
+            <header>
+                <h2>Rock Paper Scissor ✊✋✌️</h2>
+            </header>
+
+            <!-- game instructions -->
+            <section class="game-instructions" aria-labelledby="instructions-heading">
+                <h3 id="instructions-heading">how to Play:</h3>
+                <ul>
+                    <li>Choose Rock, Paper, or Scissors</li>
+                    <li>Rock beats Scissors</li>
+                    <li>Scissors beats Paper</li>
+                    <li>Paper beats Rock</li>
+                    <li>First to 5 wins!</li>
+                </ul>
+            </section>
+
+            <!-- game stats -->
+            <section class="game-stat" role="region" aria-label="Game statistics">
+                <div class="stat-item">
+                    <span class="stat-label">Your Score: </span>
+                    <output id="player-score" class="stat-value" aria-live="polite" aria-atomic="true">0</output>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">Round: </span>
+                    <output id="round-number" class="stat-value" aria-live="polite" aria-atomic="true">0</output>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">Computer Score: </span>
+                    <output id="computer-score" class="stat-value" aria-live="polite" aria-atomic="true">0</output>
+                </div>
+            </section>
+            
+            <!-- game area -->
+            <section class="game-area" role="region" aria-labelledby="game-status">
+                <div class="game-status" id="game-status" role="status" aria-live="polite">
+                    <p>Choose your move!</p>
+                </div>
+
+                <!-- battle display -->
+                <div class="battle-display" role="region" aria-label="Battle display showing player and computer choices">
+                    <div class="player-choice">
+                        <h4>You</h4>
+                        <div id="player-choice-display" class="choice-display" role="img" aria-label="Your Choice">❓</div>
+                    </div>
+
+                    <div class="vs-text" aria-hidden="true">VS</div>
+
+                    <div class="computer-choice">
+                        <h4>Computer</h4>
+                        <div id="computer-choice-display" class="choice-display" role="img" aria-label="Computer's Choice">❓</div>
+                    </div>
+                </div>
+                
+                <div id="round-result" class="round-result" role="status" aria-live="polite"></div>
+
+                <!-- choice button -->
+                <nav class="choice-button" aria-label="Choose your move">
+                    <button 
+                        class="choice-button" 
+                        data-choice="rock"
+                        type="button"
+                        aria-label="Choose Rock"
+                    >
+                        <span class="choice-icon" aria-hidden="true">✊</span>
+                        <span class="choice-label">Rock</span>
+                    </button>
+                    <button 
+                        class="choice-button" 
+                        data-choice="paper"
+                        type="button"
+                        aria-label="Choose Paper"
+                    >
+                        <span class="choice-icon" aria-hidden="true">✋</span>
+                        <span class="choice-label">Paper</span>
+                    </button>
+                    <button 
+                        class="choice-button" 
+                        data-choice="scissors"
+                        type="button"
+                        aria-label="Choose Scissors"
+                    >
+                        <span class="choice-icon" aria-hidden="true">✌️</span>
+                        <span class="choice-label">Scissors</span>
+                    </button>
+                </nav>
+
+                <nav class="game-controls" aria-label="Game controls">
+                    <button id="reset-game" class="control-button secondary" type="button">Reset Game</button>
+                </nav>
+
+                <!-- game history -->
+                <section id="game-history" class="game-history" aria-labelledby="history-heading">
+                    <h4 id="history-heading">Match History: </h4>
+                    <ul id="history-list" role="list">
+                        <!-- result will be displayed here with js -->
+                    </ul>
+                </section>
+            </section>
+
+            <!-- result modal -->
+            <aside id="result" class="modal hidden" role="dialog" aria-labelledby="result-title">
+                <div class="modal-content">
+                    <h3 id="result-title">🎉 Victory! 🎉</h3>
+                    <p id="result-message">You won the match!</p>
+                    <p>Final Score: <strong id="final-score" aria-live="polite">0 - 0</strong></p>
+                    <p>Total Rounds: <strong id="total-rounds" aria-live="polite">0</strong></p>
+
+                    <nav class="modal-actions" aria-label="Victory actions">
+                        <button id="play-again" class="control-button primary" type="button">Play Again</button>
+                        <a href="../index.html" class="control-button secondary" role="button">Back to Home</a>
+                    </nav>
+                </div>
+            </aside>
+        </article>
+    </main>
+
+    <!-- footer -->
+    <footer class="game-footer" role="contentinfo">
+        <p><small>&copy; 2024 RevoFun Gaming. All rights reserved.</small></p>
+    </footer>
+
+    <!-- custom js -->
+    <script src="../assets/js/rock-paper-scissors.js"></script>
+</body>
+</html>
