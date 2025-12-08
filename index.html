@@ -3,43 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RevoFun - Your destination for fun browser-based games. Play Number Guessing, Rock Paper Scissors, and more!">
+    <meta name="keywords" content="browser games, online games, casual gaming, free games">
+    <meta name="author" content="RevoFun Gaming">
+
     <title>RevoFun Gaming</title>
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
     <!-- header navigation -->
-    <header class="main-header">
-        <nav class="navbar">
+    <header class="main-header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="logo">
                 <h1>RevoFun</h1>
             </div>
 
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#leaderboard">Leaderboard</a></li>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" role="menuitem">Home</a></li>
+                <li role="none"><a href="#games" role="menuitem">Games</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#leaderboard" role="menuitem">Leaderboard</a></li>
             </ul>
         </nav>
     </header>
     
     <!-- main content -->
-    <main>
+    <main role="main">
         <!-- hero section -->
-        <section id="hero" class="hero">
+        <section id="hero" class="hero" aria-labelledby="hero-heading">
             <div class="hero-content">
-                <h2>Welcome to RevoFun Gaming</h2>
+                <h2 id="hero-heading">Welcome to RevoFun Gaming</h2>
                 <p>
                     Experience the thrill of simple yet addictive browser-based games
                 </p>
-                <a href="#games" class="cta-button">Start Playing</a>
+                <a href="#games" class="cta-button" role="button">Start Playing</a>
             </div>
         </section>
 
         <!-- about section -->
-        <section id="about" class="about-section">
+        <section id="about" class="about-section" aria-labelledby="about-heading">
             <div class="container">
-                <h2>About RevoFun</h2>
+                <h2 id="about-heading">About RevoFun</h2>
                 <p>
                     We are a passionate gaming company dedicated to bringing joy through simple, engaging browser games. Our mission is to create memorable gaming experiences that anyone can enjoy, anytime, anywhere.
                 </p>
@@ -47,81 +51,108 @@
         </section>
 
         <!-- games gallery section -->
-        <section id="games" class="games-section">
+        <section id="games" class="games-section" aria-labelledby="games-heading">
             <div class="container">
-                <h2>Our Games</h2>
-                <p class="section-subtitle">
-                    Choose your favorite game and start playing!
-                </p>
+                <header>
+                    <h2 id="games-heading">Our Games</h2>
+                    <p class="section-subtitle">Choose your favorite game and start playing!</p>
+                </header>
             
-                <div class="games-grid">
+                <div class="games-grid" role="list">
                     <!-- game card 1: number guessing -->
-                    <article class="game-card">
-                        <div class="game-icon">🎯</div>
+                    <article class="game-card" role="listitem">
+                        <div class="game-icon" aria-hidden="true">🎯</div>
                         <h3>Number Guessing</h3>
-                        <p>
-                            Can you guess the secret number? Test your intuition with hints like "too high" or "too low"!
-                        </p>
-                        <a href="./games/number-guessing.html" class="play-button">Play Now</a>
+                        <p>Can you guess the secret number? Test your intuition with hints like "too high" or "too low"!</p>
+                        <a 
+                            href="./games/number-guessing.html" 
+                            class="play-button" 
+                            role="button" 
+                            aria-label="Play Number Guessing Game"
+                        >
+                            Play Now
+                        </a>
                     </article>
 
                     <!-- game card 2: Rock, Paper, Scissors -->
-                    <article class="game-card">
-                        <div class="game-icon">✊</div>
+                    <article class="game-card" role="listitem">
+                        <div class="game-icon" aria-hidden="true">✊</div>
                         <h3>Rock Paper Scissors</h3>
-                        <p>
-                            Challenge the computer in this classic game. Will you outsmart the AI?
-                        </p>
-                        <a href="./games/rock-paper-scissors.html" class="play-button">Play Now</a>
+                        <p>Challenge the computer in this classic game. Will you outsmart the AI?</p>
+                        <a 
+                            href="./games/rock-paper-scissors.html" 
+                            class="play-button" 
+                            role="button" 
+                            aria-label="Play Rock Paper Scissors Game"
+                        >
+                            Play Now
+                        </a>
                     </article>
 
                     <!-- game card 3: clicker game -->
-                    <article class="game-card">
-                        <div class="game-icon">👆</div>
+                    <article class="game-card" role="listitem">
+                        <div class="game-icon" aria-hidden="true">👆</div>
                         <h3>Speed Clicker</h3>
-                        <p>
-                            How fast can you click? Race against time and set a new high score!
-                        </p>
-                        <a href="./games/clicker-game.html" class="play-button">Play Now</a>
+                        <p>How fast can you click? Race against time and set a new high score!</p>
+                        <a 
+                            href="./games/clicker-game.html" 
+                            class="play-button"
+                            role="button" 
+                            aria-label="Play Speed Clicker Game"
+                        >
+                            Play Now
+                        </a>
                     </article>
 
                     <!-- game card 4: memory card game -->
-                    <article class="game-card">
-                        <div class="game-icon">🃏</div>
+                    <article class="game-card" role="listitem">
+                        <div class="game-icon" aria-hidden="true">🃏</div>
                         <h3>Memory Cards</h3>
-                        <p>
-                            Test your memory by matching pairs of cards. Can you find them all?
-                        </p>
-                        <a href="./games/memory-game.html" class="play-button">Play Now</a>
+                        <p>Test your memory by matching pairs of cards. Can you find them all?</p>
+                        <a 
+                            href="./games/memory-game.html" 
+                            class="play-button"
+                            role="button"
+                            aria-label="Play Memory Card Game"
+                        >
+                            Play Now
+                        </a>
                     </article>
 
                     <!-- game card 5: avoid falling object -->
-                    <article class="game-card">
-                        <div class="game-icon">🎮</div>
+                    <article class="game-card" role="listitem">
+                        <div class="game-icon" aria-hidden="true">🎮</div>
                         <h3>Dodge Master</h3>
-                        <p>
-                            Avoid falling objects and survive as long as you can. Quick reflexes needed!
-                        </p>
-                        <a href="./games/memory-game.html" class="play-button">Play Now</a>
+                        <p>Avoid falling objects and survive as long as you can. Quick reflexes needed!</p>
+                        <a 
+                            href="./games/dodge-game.html" 
+                            class="play-button"
+                            role="button" 
+                            aria-label="Play Dodge Master Game"
+                        >
+                            Play Now
+                        </a>
                     </article>
                 </div>
             </div>
         </section>
 
         <!-- leaderboard section -->
-        <section id="leaderboard" class="leaderboard-section">
+        <section id="leaderboard" class="leaderboard-section" aria-labelledby="leaderboard-heading">
             <div class="container">
-                <h2>Leaderboard</h2>
-                <p class="section-subtitle">Top players across all games</p>
-
+                <header>
+                    <h2 id="leaderboard-heading">Leaderboard</h2>
+                    <p class="section-subtitle">Top players across all games</p>
+                </header>
+                
                 <div class="leaderboard-container">
-                    <table class="leaderboard-table">
+                    <table class="leaderboard-table" role="table" aria-label="Leaderboard scores">
                         <thead>
                             <tr>
-                                <th>Rank</th>
-                                <th>Player</th>
-                                <th>Game</th>
-                                <th>Score</th>
+                                <th scope="col">Rank</th>
+                                <th scope="col">Player</th>
+                                <th scope="col">Game</th>
+                                <th scope="col">Score</th>
                             </tr>
                         </thead>
                         <tbody id="leaderboard-body">
@@ -136,11 +167,14 @@
         </section>
 
         <!-- user profile section -->
-        <section id="profile" class="profile-section">
+        <section id="profile" class="profile-section" aria-labelledby="profile-heading">
             <div class="container">
-                <h2>Player Profile</h2>
+                <header>
+                    <h2 id="profile-heading">Player Profile</h2>
+                </header>
+                
                 <div class="profile-card">
-                    <form id="nickname-form">
+                    <form id="nickname-form" aria-label="Player nickname form">
                         <label for="nickname-input">Enter your Nickname:</label>
                         <input 
                             type="text" 
@@ -148,14 +182,17 @@
                             id="nickname-input" 
                             placeholder="Player123" 
                             maxlength="20" 
+                            aria-required="true"
+                            aria-describedby="nickname-hint"
                             required
                         >
+                        <span id="nickname-hint" class="visually-hidden">Enter a nickname up to 20 characters</span>
                         <button type="submit" class="save-button">Save Nickname</button>
                     </form>
 
-                    <div id="player-info" class="player-info hidden">
+                    <div id="player-info" class="player-info hidden" role="status" aria-live="polite">
                         <p>Welcome, <strong id="player-name"></strong>!</p>
-                        <button id="change-nickname" class="secondary-button">Change Nickname</button>
+                        <button id="change-nickname" class="secondary-button" type="button">Change Nickname</button>
                     </div>
                 </div>
             </div>
@@ -163,35 +200,35 @@
     </main>
     
     <!-- footer -->
-    <footer class="main-footer">
+    <footer class="main-footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>RevoFun Gaming</h3>
+                <section class="footer-section" aria-labelledby="footer-brand">
+                    <h3 id="footer-brand">RevoFun Gaming</h3>
                     <p>Bringing joy through simple games</p>
-                </div>
+                </section>
                 
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                <nav class="footer-section" aria-labelledby="footer-links">
+                    <h4 id="footer-links">Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#games">Games</a></li>
                         <li><a href="#about">About</a></li>
                     </ul>
-                </div>
+                </nav>
 
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter">Twitter</a>
-                        <a href="#" aria-label="Discord">Discord</a>
-                        <a href="#" aria-label="YouTube">YouTube</a>
+                <section class="footer-section" aria-labelledby="footer-social">
+                    <h4 id="footer-social">Follow Us</h4>
+                    <div class="social-links" role="list">
+                        <a href="#" aria-label="Follow us on Twitter" role="listitem">Twitter</a>
+                        <a href="#" aria-label="Join our Discord server" role="listitem">Discord</a>
+                        <a href="#" aria-label="Subscribe to our YouTube channel" role="listitem">YouTube</a>
                     </div>
-                </div>
+                </section>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 RevoFun Gaming. All rights reserved.</p>
+                <p><small>&copy; 2024 RevoFun Gaming. All rights reserved.</small></p>
             </div>
         </div>
     </footer>
