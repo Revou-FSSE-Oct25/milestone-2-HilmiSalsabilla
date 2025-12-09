@@ -44,17 +44,17 @@
             <section class="game-stats" role="region" aria-label="Game statistics">
                 <div class="stat-item">
                     <span class="stat-label">Score: </span>
-                    <span id="score" class="stat-value" aria-live="polite" aria-atomic="true">0</span>
+                    <output id="score" class="stat-value" aria-live="polite" aria-atomic="true">0</output>
                 </div>
 
                 <div class="stat-item">
                     <span class="stat-label">Time: </span>
-                    <span id="timer" class="stat-value" aria-live="polite" aria-atomic="true">10</span>
+                    <output id="timer" class="stat-value" aria-live="polite" aria-atomic="true">10</output>
                 </div>
 
                 <div class="stat-item">
                     <span class="stat-label">High Score: </span>
-                    <span id="high-score" class="stat-value">0</span>
+                    <output id="high-score" class="stat-value">0</output>
                 </div>
             </section>
             
@@ -81,8 +81,9 @@
             </section>
 
             <!-- result modal -->
-            <aside id="result-modal" class="modal hidden" role="dialog" aria-labelledby="results-title" aria-modal="true">
+            <aside id="results-modal" class="modal hidden" role="dialog" aria-labelledby="results-title" aria-modal="true">
                 <div class="modal-content">
+                    <button class="modal-close" type="button" aria-label="Close modal" onclick="document.getElementById('results-modal').classList.add('hidden')">✕</button>
                     <h3 id="results-title">Time's Up! 🎉</h3>
                     <p>Your Score: <strong id="final-score" aria-live="polite">0</strong></p>
                     <p id="new-record" class="new-record hidden" role="status" aria-live="polite">🏆 New High Score!</p>
