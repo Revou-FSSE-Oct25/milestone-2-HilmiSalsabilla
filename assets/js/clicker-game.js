@@ -13,7 +13,7 @@ const gameStatus = document.getElementById("game-status");
 const clickBtn = document.getElementById("click-button");
 const startBtn = document.getElementById("start-button");
 const resetBtn = document.getElementById("reset-button");
-const resultModal = document.getElementById("result-modal");
+const resultsModal = document.getElementById("results-modal");
 const finalScoreDisplay = document.getElementById("final-score");
 const newRecordDisplay = document.getElementById("new-record");
 const playAgainBtn = document.getElementById("play-again");
@@ -24,6 +24,19 @@ function setupEventListeners() {
     clickBtn.addEventListener('click', hadleClick);
     resetBtn.addEventListener('click', resetHighScore);
     playAgainBtn.addEventListener('click', resetGame);
+    
+    // close modal
+    resultsModal.addEventListener('click', (e) => {
+        if(e.target === resultsModal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && !resultsModal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
 }
 
 // update display
@@ -116,12 +129,18 @@ function showResults(isnewRecord) {
         newRecordDisplay.classList.add('hidden');
     }
 
-    resultModal.classList.remove('hidden');
+    resultsModal.classList.remove('hidden');
+}
+
+// close modal
+function closeModal() {
+    resultsModal.classList.add('hidden');
+    clickBtn.focus();
 }
 
 // reset for another game
 function resetGame() {
-    resultModal.classList.add('hidden');
+    closeModal();
     score = 0;
     timeLeft = 10;
     updateDisplay();
