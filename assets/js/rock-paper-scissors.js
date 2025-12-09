@@ -42,22 +42,7 @@ function setupEventListeners() {
     
     resetButton.addEventListener('click', resetGame);
     playAgainButton.addEventListener('click', () => {
-        closeModal();
         resetGame();
-    });
-    
-    // close modal when clicking outside
-    victoryModal.addEventListener('click', (e) => {
-        if (e.target === victoryModal) {
-            closeModal();
-        }
-    });
-    
-    // Ccose modal with esc key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !victoryModal.classList.contains('hidden')) {
-            closeModal();
-        }
     });
 }
 
@@ -219,7 +204,6 @@ function closeModal() {
 
 // reset game
 function resetGame() {
-    closeModal();
     playerScore = 0;
     computerScore = 0;
     roundNumber = 0;
