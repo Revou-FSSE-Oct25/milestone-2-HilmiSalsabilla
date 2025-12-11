@@ -12,23 +12,23 @@
 </head>
 <body>
     <!-- header navigation -->
-    <header class="main-header" role="banner">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <header class="main-header">
+        <nav class="navbar" aria-label="Main navigation">
             <div class="logo">
-                <h1>RevoFun</h1>
+                <a href="index.html">RevoFun</a>
             </div>
 
             <ul class="nav-menu" role="menubar">
-                <li role="none"><a href="#home" role="menuitem">Home</a></li>
-                <li role="none"><a href="#games" role="menuitem">Games</a></li>
-                <li role="none"><a href="#about" role="menuitem">About</a></li>
-                <li role="none"><a href="#leaderboard" role="menuitem">Leaderboard</a></li>
+                <li><a href="#home" role="menuitem">Home</a></li>
+                <li><a href="#games" role="menuitem">Games</a></li>
+                <li><a href="#about" role="menuitem">About</a></li>
+                <li><a href="#leaderboard" role="menuitem">Leaderboard</a></li>
             </ul>
         </nav>
     </header>
     
     <!-- main content -->
-    <main role="main">
+    <main>
         <!-- hero section -->
         <section id="hero" class="hero" aria-labelledby="hero-heading">
             <div class="hero-content">
@@ -59,38 +59,8 @@
                 </header>
             
                 <div class="games-grid" role="list">
-                    <!-- game card 1: number guessing -->
-                    <article class="game-card" role="listitem">
-                        <div class="game-icon" aria-hidden="true">🎯</div>
-                        <h3>Number Guessing</h3>
-                        <p>Can you guess the secret number? Test your intuition with hints like "too high" or "too low"!</p>
-                        <a 
-                            href="./games/number-guessing.html" 
-                            class="play-button" 
-                            role="button" 
-                            aria-label="Play Number Guessing Game"
-                        >
-                            Play Now
-                        </a>
-                    </article>
-
-                    <!-- game card 2: Rock, Paper, Scissors -->
-                    <article class="game-card" role="listitem">
-                        <div class="game-icon" aria-hidden="true">✊</div>
-                        <h3>Rock Paper Scissors</h3>
-                        <p>Challenge the computer in this classic game. Will you outsmart the AI?</p>
-                        <a 
-                            href="./games/rock-paper-scissors.html" 
-                            class="play-button" 
-                            role="button" 
-                            aria-label="Play Rock Paper Scissors Game"
-                        >
-                            Play Now
-                        </a>
-                    </article>
-
-                    <!-- game card 3: clicker game -->
-                    <article class="game-card" role="listitem">
+                    <!-- game card 1: clicker game -->
+                    <article class="game-card">
                         <div class="game-icon" aria-hidden="true">👆</div>
                         <h3>Speed Clicker</h3>
                         <p>How fast can you click? Race against time and set a new high score!</p>
@@ -99,13 +69,46 @@
                             class="play-button"
                             role="button" 
                             aria-label="Play Speed Clicker Game"
+                            target="_blank"
+                        >
+                            Play Now
+                        </a>
+                    </article>
+                    
+                    <!-- game card 2: number guessing -->
+                    <article class="game-card">
+                        <div class="game-icon" aria-hidden="true">🎯</div>
+                        <h3>Number Guessing</h3>
+                        <p>Can you guess the secret number? Test your intuition with hints like "too high" or "too low"!</p>
+                        <a 
+                            href="./games/number-guessing.html" 
+                            class="play-button" 
+                            role="button" 
+                            aria-label="Play Number Guessing Game"
+                            target="_blank"
+                        >
+                            Play Now
+                        </a>
+                    </article>
+
+                    <!-- game card 3: Rock, Paper, Scissors -->
+                    <article class="game-card">
+                        <div class="game-icon" aria-hidden="true">✊</div>
+                        <h3>Rock Paper Scissors</h3>
+                        <p>Challenge the computer in this classic game. Will you outsmart the AI?</p>
+                        <a 
+                            href="./games/rock-paper-scissors.html" 
+                            class="play-button" 
+                            role="button" 
+                            aria-label="Play Rock Paper Scissors Game"
+                            target="_blank"
                         >
                             Play Now
                         </a>
                     </article>
 
                     <!-- game card 4: memory card game -->
-                    <article class="game-card" role="listitem">
+                    <article class="game-card">
                         <div class="game-icon" aria-hidden="true">🃏</div>
                         <h3>Memory Cards</h3>
                         <p>Test your memory by matching pairs of cards. Can you find them all?</p>
@@ -114,13 +117,14 @@
                             class="play-button"
                             role="button"
                             aria-label="Play Memory Card Game"
+                            target="_blank"
                         >
                             Play Now
                         </a>
                     </article>
 
                     <!-- game card 5: avoid falling object -->
-                    <article class="game-card" role="listitem">
+                    <article class="game-card">
                         <div class="game-icon" aria-hidden="true">🎮</div>
                         <h3>Dodge Master</h3>
                         <p>Avoid falling objects and survive as long as you can. Quick reflexes needed!</p>
@@ -129,6 +133,7 @@
                             class="play-button"
                             role="button" 
                             aria-label="Play Dodge Master Game"
+                            target="_blank"
                         >
                             Play Now
                         </a>
@@ -146,7 +151,7 @@
                 </header>
                 
                 <div class="leaderboard-container">
-                    <table class="leaderboard-table" role="table" aria-label="Leaderboard scores">
+                    <table class="leaderboard-table" aria-label="Leaderboard scores">
                         <thead>
                             <tr>
                                 <th scope="col">Rank</th>
@@ -182,7 +187,6 @@
                             id="nickname-input" 
                             placeholder="Player123" 
                             maxlength="20" 
-                            aria-required="true"
                             aria-describedby="nickname-hint"
                             required
                         >
@@ -200,7 +204,7 @@
     </main>
     
     <!-- footer -->
-    <footer class="main-footer" role="contentinfo">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <section class="footer-section" aria-labelledby="footer-brand">
@@ -220,9 +224,9 @@
                 <section class="footer-section" aria-labelledby="footer-social">
                     <h4 id="footer-social">Follow Us</h4>
                     <div class="social-links" role="list">
-                        <a href="#" aria-label="Follow us on Twitter" role="listitem">Twitter</a>
-                        <a href="#" aria-label="Join our Discord server" role="listitem">Discord</a>
-                        <a href="#" aria-label="Subscribe to our YouTube channel" role="listitem">YouTube</a>
+                        <a href="https://x.com/" aria-label="Follow us on Twitter">Twitter</a>
+                        <a href="https://discord.com/" aria-label="Join our Discord server">Discord</a>
+                        <a href="https://www.youtube.com/" aria-label="Subscribe to our YouTube channel">YouTube</a>
                     </div>
                 </section>
             </div>
