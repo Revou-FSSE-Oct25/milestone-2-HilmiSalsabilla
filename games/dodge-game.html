@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dodge Master Game - Avoid falling objects!">
+    <meta name="keywords" content="dodge game, arcade game, browser game, reflex game">
+    <meta name="author" content="RevoFun Gaming">
+
+    <title>Dodge Master - RevoFun Gaming</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/games.css">
+</head>
+<body class="game-page">
+    <!-- header -->
+    <header class="game-header">
+        <nav class="navbar" aria-label="Game navigation">
+            <div class="logo">
+                <a href="../index.html" class="text-gradient">RevoFun</a>
+            </div>
+
+            <a href="../index.html" class="back-button" aria-label="Go back to home page">← Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- main game container -->
+    <main class="game-container">
+        <article class="game-content">
+            <header>
+                <h2>Dodge Master 🎮</h2>
+            </header>
+
+            <!-- game instructions -->
+            <section class="game-instructions" aria-labelledby="instructions-heading">
+                <h3 id="instructions-heading">How to Play: </h3>
+                <ul>
+                    <li>Use Arrow Keys (← →) or A/D keys to move left and right</li>
+                    <li>Avoid the falling objects</li>
+                    <li>Survive as long as possible to increase your score</li>
+                    <li>Objects fall faster as you progress!</li>
+                </ul>
+            </section>
+
+            <!-- game stats -->
+            <section class="game-stats" aria-label="Game statistics">
+                <div class="stat-item">
+                    <span class="stat-label">Score: </span>
+                    <output id="score" class="stat-value" aria-live="polite" aria-atomic="true">0</output>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">Lives: </span>
+                    <output id="lives" class="stat-value" aria-live="polite" aria-atomic="true">3</output>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">High Score: </span>
+                    <output id="high-score" class="stat-value">0</output>
+                </div>
+            </section>
+
+            <!-- game area -->
+            <section class="game-area" aria-labelledby="game-status">
+                <div id="game-status" class="game-status" aria-live="polite">
+                    <h3>Press "Start Game" to begin!</h3>
+                    <p class="controls-hint">Use ← → or A/D to move</p>
+                </div>
+                
+                <canvas 
+                    id="game-canvas" 
+                    width="600" 
+                    height="400"
+                    aria-label="Game canvas where player dodges falling objects"
+                >
+                    Your browser does not support the canvas element.
+                </canvas>
+
+                <nav class="game-controls" aria-label="Game controls">
+                    <button id="start-button" class="control-button primary" type="button">Start Game</button>
+                    <button id="pause-button" class="control-button secondary" type="button" disabled>Pause Game</button>
+                </nav>
+            </section>
+
+            <!-- game modal -->
+            <aside id="game-over-modal" class="modal hidden" aria-labelledby="game-over-title">
+                <div class="modal-content">
+                    <button class="modal-close" type="button" aria-label="Close modal" onclick="document.getElementById('game-over-modal').classList.add('hidden')">✕</button>
+                    <h3 id="game-over-title">Game Over! 💥</h3>
+                    <p>Your Score: <strong id="final-score" aria-live="polite">0</strong></p>
+                    <p id="new-record" class="new-record hidden" role="status" aria-live="polite">🏆 New High Score!</p>
+
+                    <nav class="modal-actions" aria-label="Game over actions">
+                        <button id="play-again" class="control-button primary" type="button">Play Again</button>
+                        <a href="../index.html" class="control-button secondary">Back to Home</a>
+                    </nav>
+                </div>
+            </aside>
+        </article>
+    </main>
+
+    <!-- footer -->
+    <footer class="game-footer">
+        <p><small>&copy; 2025 RevoFun Gaming. All rights reserved.</small></p>
+    </footer>
+
+    <!-- custom js -->
+    <script src="../assets/js/dodge-game.js"></script>
+</body>
+</html>
