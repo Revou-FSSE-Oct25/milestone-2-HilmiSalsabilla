@@ -13,25 +13,25 @@
 </head>
 <body class="game-page">
     <!-- header -->
-    <header class="game-header" role="banner">
-        <nav class="navbar" role="navigation" aria-label="Game navigation">
+    <header class="game-header">
+        <nav class="navbar" aria-label="Game navigation">
             <div class="logo">
-                <h1>RevoFun</h1>
+                <a href="index.html" class="text-gradient">RevoFun</a>
             </div>
             <a href="../index.html" class="back-button" role="button" aria-label="Go back to home page">← Back to Home</a>
         </nav>
     </header>
 
     <!-- main game container -->
-    <main class="game-container" role="main">
+    <main class="game-container">
         <article class="game-content">
             <header>
-                <h2>Speed Clicker 👆</h2>
+                <h2 class="text-gradient">Speed Clicker 👆</h2>
             </header>
 
             <!-- game instructions -->
             <section class="game-instructions" aria-labelledby="instructions-heading">
-                <h3 id="instructions-heading">How to Play:</h3>
+                <h3 id="instructions-heading" class="text-gradient">How to Play:</h3>
                 <ul>
                     <li>Click the big button as many times as you can</li>
                     <li>You have 10 seconds to get the highest score</li>
@@ -41,7 +41,7 @@
             </section>
 
             <!-- game stats -->
-            <section class="game-stats" role="region" aria-label="Game statistics">
+            <section class="game-stats" aria-label="Game statistics">
                 <div class="stat-item">
                     <span class="stat-label">Score: </span>
                     <output id="score" class="stat-value" aria-live="polite" aria-atomic="true">0</output>
@@ -59,7 +59,7 @@
             </section>
             
             <!-- game area -->
-            <section class="game-area" role="region" aria-labelledby="game-status">
+            <section class="game-area" aria-labelledby="game-status">
                 <div class="game-status" id="game-status" role="status" aria-live="polite">
                     <p>Click "Start Game" to begin!</p>
                 </div>
@@ -81,10 +81,10 @@
             </section>
 
             <!-- result modal -->
-            <aside id="results-modal" class="modal hidden" role="dialog" aria-labelledby="results-title" aria-modal="true">
+            <aside id="results-modal" class="modal hidden" aria-labelledby="results-title">
                 <div class="modal-content">
                     <button class="modal-close" type="button" aria-label="Close modal" onclick="document.getElementById('results-modal').classList.add('hidden')">✕</button>
-                    <h3 id="results-title">Time's Up! 🎉</h3>
+                    <h3 id="results-title" class="text-gradient">Time's Up! 🎉</h3>
                     <p>Your Score: <strong id="final-score" aria-live="polite">0</strong></p>
                     <p id="new-record" class="new-record hidden" role="status" aria-live="polite">🏆 New High Score!</p>
 
@@ -98,7 +98,7 @@
     </main>
 
     <!-- footer -->
-    <footer class="game-footer" role="contentinfo">
+    <footer class="game-footer">
         <p><small>&copy; 2025 RevoFun Gaming. All rights reserved.</small></p>
     </footer>
 
