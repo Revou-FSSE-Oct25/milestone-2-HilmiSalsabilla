@@ -13,17 +13,17 @@
 </head>
 <body class="game-page">
     <!-- header -->
-    <header class="game-header" role="banner">
-        <nav class="navbar" role="navigation" aria-label="Game navigation">
+    <header class="game-header">
+        <nav class="navbar" aria-label="Game navigation">
             <div class="logo">
-                <h1>RevoFun</h1>
+                <a href="index.html" class="text-gradient">RevoFun</a>
             </div>
-            <a href="../index.html" class="back-button" role="button" aria-label="Go back to home page">← Back to Home</a>
+            <a href="../index.html" class="back-button" aria-label="Go back to home page">← Back to Home</a>
         </nav>
     </header>
 
     <!-- main game container -->
-    <main class="game-container" role="main">
+    <main class="game-container">
         <article class="game-content">
             <header>
                 <h2>Rock Paper Scissors ✊✋✌️</h2>
@@ -42,7 +42,7 @@
             </section>
 
             <!-- game stat -->
-            <section class="game-stats" role="region" aria-label="Game statistics">
+            <section class="game-stats" aria-label="Game statistics">
                 <div class="stat-item">
                     <span class="stat-label">Your Score:</span>
                     <output id="player-score" class="stat-value" aria-live="polite" aria-atomic="true">0</output>
@@ -58,27 +58,27 @@
             </section>
 
             <!-- game area -->
-            <section class="game-area" role="region" aria-labelledby="game-status">
-                <div id="game-status" class="game-status" role="status" aria-live="polite">
-                    <p>Choose your move!</p>
+            <section class="game-area" aria-labelledby="game-status">
+                <div id="game-status" class="game-status" aria-live="polite">
+                    <h3>Choose your move!</h3>
                 </div>
 
                 <!-- battle display -->
-                <div class="battle-display" role="region" aria-label="Battle display showing player and computer choices">
+                <section class="battle-display" aria-label="Battle display showing player and computer choices">
                     <div class="player-choice">
                         <h4>You</h4>
-                        <div id="player-choice-display" class="choice-display" role="img" aria-label="Your choice">❓</div>
+                        <div id="player-choice-display" class="choice-display" aria-label="Your choice">❓</div>
                     </div>
                     
                     <div class="vs-text" aria-hidden="true">VS</div>
                     
                     <div class="computer-choice">
                         <h4>Computer</h4>
-                        <div id="computer-choice-display" class="choice-display" role="img" aria-label="Computer's choice">❓</div>
+                        <div id="computer-choice-display" class="choice-display" aria-label="Computer's choice">❓</div>
                     </div>
-                </div>
+                </section>
 
-                <div id="round-result" class="round-result" role="status" aria-live="polite"></div>
+                <div id="round-result" class="round-result" aria-live="polite"></div>
 
                 <!-- choice btns -->
                 <nav class="choice-buttons" aria-label="Choose your move">
@@ -118,22 +118,23 @@
                 <!-- game history -->
                 <section id="game-history" class="game-history" aria-labelledby="history-heading">
                     <h4 id="history-heading">Match History:</h4>
-                    <ul id="history-list" role="list">
+                    <ul id="history-list">
                         <!-- round will be displayed here -->
                     </ul>
                 </section>
             </section>
 
             <!-- victory modal -->
-            <aside id="victory-modal" class="modal hidden" role="dialog" aria-labelledby="victory-title" aria-modal="true">
+            <aside id="victory-modal" class="modal hidden" aria-labelledby="victory-title">
                 <div class="modal-content">
+                    <button class="modal-close" type="button" aria-label="Close modal" onclick="document.getElementById('victory-modal').classList.add('hidden')">✕</button>
                     <h3 id="victory-title">🎉 Victory! 🎉</h3>
                     <p id="victory-message">You won the match!</p>
                     <p>Final Score: <strong id="final-score" aria-live="polite">0 - 0</strong></p>
                     <p>Total Rounds: <strong id="total-rounds" aria-live="polite">0</strong></p>
                     <nav class="modal-actions" aria-label="Victory actions">
                         <button id="play-again" class="control-button primary" type="button">Play Again</button>
-                        <a href="../index.html" class="control-button secondary" role="button">Back to Home</a>
+                        <a href="../index.html" class="control-button secondary">Back to Home</a>
                     </nav>
                 </div>
             </aside>
@@ -141,7 +142,7 @@
     </main>
 
     <!-- footer -->
-    <footer class="game-footer" role="contentinfo">
+    <footer class="game-footer">
         <p><small>&copy; 2025 RevoFun Gaming. All rights reserved.</small></p>
     </footer>
 
