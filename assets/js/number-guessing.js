@@ -33,6 +33,20 @@ function setupEventListeners() {
         resultModal.classList.add('hidden');
         startNewGame();
     });
+    
+    // close modal
+    resultModal.addEventListener('click', (e) => {
+        if(e.target === resultModal) {
+            closeModal();
+        }
+    });
+
+    // close modal with esc
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && !resultModal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
 }
 
 // start new game
@@ -145,6 +159,11 @@ function updateDisplay() {
     rangeDisplay.textContent = `${minRange} - ${maxRange}`;
 }
 
+// update range display
+function updateRange() {
+    rangeDisplay.textContent = `${minRange} - ${maxRange}`;
+}
+
 // wingame
 function winGame() {
     guessInput.disabled = true;
@@ -202,6 +221,12 @@ function showResult(won, isNewRecord, attemptsUsed) {
     }
 
     resultModal.classList.remove('hidden');
+}
+
+// closa modal
+function closeModal() {
+    resultModal.classList.add('hidden');
+    guessInput.focus();
 }
 
 // initialisasi game
