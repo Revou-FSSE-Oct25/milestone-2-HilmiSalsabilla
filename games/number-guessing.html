@@ -13,18 +13,18 @@
 </head>
 <body class="game-page">
     <!-- header -->
-    <header class="game-header" role="banner">
-        <nav class="navbar" role="navigation" aria-label="Game navigation">
+    <header class="game-header">
+        <nav class="navbar" aria-label="Game navigation">
             <div class="logo">
-                <h1>RevoFun</h1>
+                <a href="index.html" class="text-gradient">RevoFun</a>
             </div>
 
-            <a href="../index.html" class="back-button" role="button" aria-label="Go back to home page">← Back to Home</a>
+            <a href="../index.html" class="back-button" aria-label="Go back to home page">← Back to Home</a>
         </nav>
     </header>
     
     <!-- main game container -->
-    <main class="game-container" role="main">
+    <main class="game-container">
         <article class="game-content">
             <header>
                 <h2>Number Guessing Game 🎯</h2>
@@ -42,7 +42,7 @@
             </section>
 
             <!-- game stats -->
-            <section class="game-stats" role="region" aria-label="Game statistics">
+            <section class="game-stats" aria-label="Game statistics">
                 <div class="stat-item">
                     <span class="stat-label">Attempt Left: </span>
                     <span id="attempts" class="stat-value" aria-live="polite" aria-atomic="true">10</span>
@@ -60,9 +60,9 @@
             </section>
 
             <!-- game area -->
-            <section class="game-area" role="region" aria-labelledby="game-status">
-                <div id="game-status" class="game-status" role="status" aria-live="polite">
-                    <p>Make your first guess!</p>
+            <section class="game-area" aria-labelledby="game-status">
+                <div id="game-status" class="game-status" aria-live="polite">
+                    <h3>Make your first guess!</h3>
                 </div>
 
                 <div class="guess-container">
@@ -81,14 +81,14 @@
                     </form>
                 </div>
 
-                <div id="hint-message" class="hint-message" role="status" aria-live="assertive"></div>
+                <div id="hint-message" class="hint-message" aria-live="assertive"></div>
 
-                <div id="guess-history" class="guess-history" aria-labelledby="history-heading">
+                <section id="guess-history" class="guess-history" aria-labelledby="history-heading">
                     <h4 id="history-heading">Your Guess: </h4>
-                    <ul id="guess-list" role="list">
+                    <ul id="guess-list">
                         <!-- list of previous guess will be display here -->
                     </ul>
-                </div>
+                </section>
 
                 <nav class="game-controls" aria-label="Game controls">
                     <button id="new-game" class="control-button secondary" type="button">New Game</button>
@@ -96,17 +96,18 @@
             </section>
 
             <!-- result modal -->
-            <aside id="result-modal" class="modal hidden" role="dialog" aria-labelledby="result-title" aria-modal="true">
+            <aside id="result-modal" class="modal hidden" aria-labelledby="result-title">
                 <div class="modal-content">
+                    <button class="modal-close" type="button" aria-label="Close modal" onclick="document.getElementById('result-modal').classList.add('hidden')">✕</button>
                     <h3 id="result-title">Congratulations! 🎉</h3>
                     <p id="result-message">You guessed the number!</p>
                     <p>The number was: <strong id="secret-number" aria-live="polite">0</strong></p>
                     <p>Attempts used: <strong id="attempts-used" aria-live="polite">0</strong></p>
-                    <p id="new-record" class="new-record hidden" role="status" aria-live="polite">🏆 New Best Score!</p>
+                    <p id="new-record" class="new-record hidden" aria-live="polite">🏆 New Best Score!</p>
                     
                     <nav class="modal-actions" aria-label="Game result actions">
                         <button id="play-again" class="control-button primary" type="button">Play Again</button>
-                        <a href="../index.html" class="control-button secondary" role="button">Back to Home</a>
+                        <a href="../index.html" class="control-button secondary">Back to Home</a>
                     </nav>
                 </div>
             </aside>
@@ -114,7 +115,7 @@
     </main>
 
     <!-- footer -->
-    <footer class="game-footer" role="contentinfo">
+    <footer class="game-footer">
         <p><small>&copy; 2025 RevoFun Gaming. All rights reserved.</small></p>
     </footer>
 
