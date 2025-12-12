@@ -3,7 +3,7 @@ let playerScore = 0;
 let computerScore = 0;
 let roundNumber = 0;
 let isGameActive = true;
-const winningScore = 5;
+const winningScore = 3;
 
 // choice mapping
 const choices = {
@@ -21,14 +21,14 @@ const computerChoiceDisplay = document.getElementById('computer-choice-display')
 const gameStatus = document.getElementById('game-status');
 const roundResult = document.getElementById('round-result');
 const choiceButtons = document.querySelectorAll('.choice-button');
-const resetButton = document.getElementById('reset-game');
+const resetBtn = document.getElementById('reset-game');
 const historyList = document.getElementById('history-list');
 const victoryModal = document.getElementById('victory-modal');
 const victoryTitle = document.getElementById('victory-title');
 const victoryMessage = document.getElementById('victory-message');
 const finalScore = document.getElementById('final-score');
 const totalRounds = document.getElementById('total-rounds');
-const playAgainButton = document.getElementById('play-again');
+const playAgainBtn = document.getElementById('play-again');
 
 function setupEventListeners() {
     choiceButtons.forEach(button => {
@@ -40,10 +40,24 @@ function setupEventListeners() {
         });
     });
     
-    resetButton.addEventListener('click', resetGame);
-    playAgainButton.addEventListener('click', () => {
+    resetBtn.addEventListener('click', resetGame);
+    playAgainBtn.addEventListener('click', () => {
         resetGame();
     });
+
+    // close modal
+    victoryModal.addEventListener('click', (e) => {
+        if(e.target === victoryModal) {
+            closeModal()
+        }
+    });
+
+    // close modal esc
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && !victoryModal.classList.add('hidden')) {
+            closeModal()
+        }
+    })
 }
 
 // play a round
@@ -195,11 +209,8 @@ function endGame() {
 
 // close modal
 function closeModal() {
-    if (!victoryModal.classList.contains('hidden')) {
-        victoryModal.classList.add('hidden');
-    }
-
-    if (resetButton) resetButton.focus();
+    victoryModal.classList.add('hidden');
+    resetBtn.focus();
 }
 
 // reset game
