@@ -15,20 +15,20 @@
     <header class="main-header">
         <nav class="navbar" aria-label="Main navigation">
             <div class="logo">
-                <a href="index.html">RevoFun</a>
+                <a href="index.html" class="text-gradient">RevoFun</a>
             </div>
 
-            <ul class="nav-menu" role="menubar">
-                <li><a href="#home" role="menuitem">Home</a></li>
-                <li><a href="#games" role="menuitem">Games</a></li>
-                <li><a href="#about" role="menuitem">About</a></li>
-                <li><a href="#leaderboard" role="menuitem">Leaderboard</a></li>
+            <ul class="nav-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#leaderboard">Leaderboard</a></li>
             </ul>
         </nav>
     </header>
     
     <!-- main content -->
-    <main>
+    <main id="main-content">
         <!-- hero section -->
         <section id="hero" class="hero" aria-labelledby="hero-heading">
             <div class="hero-content">
@@ -36,14 +36,14 @@
                 <p>
                     Experience the thrill of simple yet addictive browser-based games
                 </p>
-                <a href="#games" class="cta-button" role="button">Start Playing</a>
+                <a href="#games" class="cta-button" >Start Playing</a>
             </div>
         </section>
 
         <!-- about section -->
         <section id="about" class="about-section" aria-labelledby="about-heading">
             <div class="container">
-                <h2 id="about-heading">About RevoFun</h2>
+                <h2 id="about-heading" class="text-gradient">About RevoFun</h2>
                 <p>
                     We are a passionate gaming company dedicated to bringing joy through simple, engaging browser games. Our mission is to create memorable gaming experiences that anyone can enjoy, anytime, anywhere.
                 </p>
@@ -54,11 +54,11 @@
         <section id="games" class="games-section" aria-labelledby="games-heading">
             <div class="container">
                 <header>
-                    <h2 id="games-heading">Our Games</h2>
+                    <h2 id="games-heading" class="text-gradient">Our Games</h2>
                     <p class="section-subtitle">Choose your favorite game and start playing!</p>
                 </header>
             
-                <div class="games-grid" role="list">
+                <div class="games-grid">
                     <!-- game card 1: clicker game -->
                     <article class="game-card">
                         <div class="game-icon" aria-hidden="true">👆</div>
@@ -67,7 +67,6 @@
                         <a 
                             href="./games/clicker-game.html" 
                             class="play-button"
-                            role="button" 
                             aria-label="Play Speed Clicker Game"
                             target="_blank"
                         >
@@ -83,7 +82,6 @@
                         <a 
                             href="./games/number-guessing.html" 
                             class="play-button" 
-                            role="button" 
                             aria-label="Play Number Guessing Game"
                             target="_blank"
                         >
@@ -99,7 +97,6 @@
                         <a 
                             href="./games/rock-paper-scissors.html" 
                             class="play-button" 
-                            role="button" 
                             aria-label="Play Rock Paper Scissors Game"
                             target="_blank"
                         >
@@ -115,7 +112,6 @@
                         <a 
                             href="./games/memory-game.html" 
                             class="play-button"
-                            role="button"
                             aria-label="Play Memory Card Game"
                             target="_blank"
                         >
@@ -131,7 +127,6 @@
                         <a 
                             href="./games/dodge-game.html" 
                             class="play-button"
-                            role="button" 
                             aria-label="Play Dodge Master Game"
                             target="_blank"
                         >
@@ -146,7 +141,7 @@
         <section id="leaderboard" class="leaderboard-section" aria-labelledby="leaderboard-heading">
             <div class="container">
                 <header>
-                    <h2 id="leaderboard-heading">Leaderboard</h2>
+                    <h2 id="leaderboard-heading" class="text-gradient">Leaderboard</h2>
                     <p class="section-subtitle">Top players across all games</p>
                 </header>
                 
@@ -175,7 +170,7 @@
         <section id="profile" class="profile-section" aria-labelledby="profile-heading">
             <div class="container">
                 <header>
-                    <h2 id="profile-heading">Player Profile</h2>
+                    <h2 id="profile-heading" class="text-gradient">Player Profile</h2>
                 </header>
                 
                 <div class="profile-card">
@@ -208,26 +203,26 @@
         <div class="container">
             <div class="footer-content">
                 <section class="footer-section" aria-labelledby="footer-brand">
-                    <h3 id="footer-brand">RevoFun Gaming</h3>
+                    <h3 id="footer-brand" class="text-gradient">RevoFun Gaming</h3>
                     <p>Bringing joy through simple games</p>
                 </section>
                 
                 <nav class="footer-section" aria-labelledby="footer-links">
-                    <h4 id="footer-links">Quick Links</h4>
+                    <h3 id="footer-links" class="text-gradient">Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="#hero">Home</a></li>
                         <li><a href="#games">Games</a></li>
                         <li><a href="#about">About</a></li>
                     </ul>
                 </nav>
 
                 <section class="footer-section" aria-labelledby="footer-social">
-                    <h4 id="footer-social">Follow Us</h4>
-                    <div class="social-links" role="list">
-                        <a href="https://x.com/" aria-label="Follow us on Twitter">Twitter</a>
-                        <a href="https://discord.com/" aria-label="Join our Discord server">Discord</a>
-                        <a href="https://www.youtube.com/" aria-label="Subscribe to our YouTube channel">YouTube</a>
-                    </div>
+                    <h3 id="footer-social" class="text-gradient">Follow Us</h3>
+                    <ul class="social-links">
+                        <li><a href="https://x.com/" aria-label="Follow us on Twitter">Twitter</a></li>
+                        <li><a href="https://discord.com/" aria-label="Join our Discord server">Discord</a></li>
+                        <li><a href="https://www.youtube.com/" aria-label="Subscribe to our YouTube channel">YouTube</a></li>
+                    </ul>
                 </section>
             </div>
 
