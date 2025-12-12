@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Memory Card Game - Match all the pairs!">
+    <meta name="keywords" content="memory game, matching game, card game, brain game">
+    <meta name="author" content="RevoFun Gaming">
+
+    <title>Memory Cards - RevoFun Gaming</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/games.css">
+</head>
+<body class="game-page">
+    <!-- header -->
+    <header class="game-header">
+        <nav class="navbar" aria-label="Game navigation">
+            <div class="logo">
+                <a href="../index.html" class="text-gradient">RevoFun</a>
+            </div>
+
+            <a href="../index.html" class="back-button" aria-label="Go back to home page">← Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- game page container -->
+    <main class="game-container">
+        <article class="game-content">
+            <header>
+                <h2>Memory Card 🃏</h2>
+            </header>
+
+            <!-- game instructions -->
+            <section class="game-instructions" aria-labelledby="instructions-heading">
+                <h3 id="instructions-heading">How to Play: </h3>
+                <ul>
+                    <li>Click on cards to flip them over</li>
+                    <li>Find matching pairs of cards</li>
+                    <li>Match all pairs to win the game</li>
+                    <li>Try to complete the game in the fewest moves!</li>
+                </ul>
+            </section>
+
+            <!-- game stats -->
+            <section class="game-stats" aria-label="Game statistics">
+                <div class="stat-item">
+                    <span class="stat-label">Moves: </span>
+                    <output id="moves" class="stat-value" aria-live="polite" aria-atomic="true">0</output>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">Matches: </span>
+                    <output id="matches" class="stat-value" aria-live="polite" aria-atomic="true">0/8</output>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-label">Best Score: </span>
+                    <output id="best-score" class="stat-value">-</output>
+                </div>
+            </section>
+
+            <!-- game area -->
+            <section class="game-area" aria-labelledby="game-status">
+                <div id="game-status" class="game-status" aria-live="polite">
+                    <h3>Click "Start Game" to begin!</h3>
+                </div>
+
+                <section 
+                    id="card-grid" 
+                    class="card-grid"
+                    aria-label="Memory card game grid"
+                    aria-describedby="game-status"
+                >
+                    <!-- card will be displyed by js -->
+                </section>
+                
+                <nav class="game-controls" aria-label="Game controls">
+                    <button id="start-button" class="control-button primary" type="button">Start Game</button>
+                    <button id="restart-button" class="control-button secondary" type="button" disabled>Restart</button>
+                </nav>
+            </section>
+
+            <!-- victory modal -->
+            <aside id="victory-modal" class="modal hidden" aria-labelledby="victory-title">
+                <div class="modal-content">
+                    <button class="modal-close" type="button" aria-label="Close modal" onclick="document.getElementById('victory-modal').classList.add('hidden')">✕</button>
+                    <h3 id="victory-title">Congratulations! 🎉</h3>
+                    <p>You matched all pairs!</p>
+                    <p>Total Moves: <strong id="final-moves" aria-live="polite">0</strong></p>
+                    <p id="new-record" class="new-record hidden" role="status" aria-live="polite">🏆 New Best Score!</p>
+                    <nav class="modal-actions" aria-label="Victory actions">
+                        <button id="play-again" class="control-button primary" type="button">Play Again</button>
+                        <a href="../index.html" class="control-button secondary">Back to Home</a>
+                    </nav>
+                </div>
+            </aside>
+        </article>
+    </main>
+    
+    <!-- footer -->
+    <footer class="game-footer">
+        <p><small>&copy; 2025 RevoFun Gaming. All rights reserved.</small></p>
+    </footer>
+
+    <!-- custom js -->
+    <script src="../assets/js/memory-game.js"></script>
+</body>
+</html>
