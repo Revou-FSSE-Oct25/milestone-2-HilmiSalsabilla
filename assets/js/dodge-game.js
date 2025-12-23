@@ -298,16 +298,24 @@ function showGameOver(isNewRecord) {
 
 // load highscore
 function loadHighScore() {
-    const saved = localStorage.getItem('dodgeHighScore');
-    if(saved) {
-        highScore = parseInt(saved);
-        highScoreDisplay.textContent = highScore;
+    try {
+        const saved = localStorage.getItem('dodgeHighScore');
+        if(saved) {
+            highScore = parseInt(saved);
+            highScoreDisplay.textContent = highScore;
+        }
+    } catch (error) {
+        console.error('Error loading high score:', error)
     }
 }
 
 // save highscore
 function saveHighScore() {
-    localStorage.setItem('dodgeHighScore', highScore);
+    try {
+        localStorage.setItem('dodgeHighScore', highScore);
+    } catch (error) {
+        console.error('Error saving high score:', error)
+    }
 }
 
 // close modal
