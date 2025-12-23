@@ -1,0 +1,21 @@
+/* base/typography.css */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: clamp(0.5rem, 4vw, 1.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

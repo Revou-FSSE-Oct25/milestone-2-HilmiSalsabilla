@@ -1,0 +1,128 @@
+/* layout/sections.css */
+.about-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-dark);
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    margin-bottom: var(--spacing-md);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--color-light);
+    line-height: 1.8;
+}
+
+.games-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--gradient-dark);
+}
+
+.games-section h2 {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-light);
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1rem;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.leaderboard-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--color-dark);
+}
+
+.leaderboard-section h2 {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.leaderboard-container {
+    max-width: 800px;
+    margin: var(--spacing-lg) auto;
+    background: var(--color-darkest);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--color-medium-dark);
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard-table thead {
+    background: var(--gradient-primary);
+}
+
+.leaderboard-table th {
+    padding: var(--spacing-sm);
+    text-align: left;
+    font-weight: 700;
+    color: var(--color-lightest);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.leaderboard-table td {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-medium-dark);
+    color: var(--color-light);
+}
+
+.leaderboard-table tbody tr {
+    transition: var(--transition-fast);
+}
+
+.leaderboard-table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.no-data {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--color-light);
+    font-style: italic;
+}
+
+.profile-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--gradient-dark);
+}
+
+.profile-section h2 {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

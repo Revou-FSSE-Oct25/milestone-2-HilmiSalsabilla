@@ -1,0 +1,46 @@
+/* components/forms.css */
+#nickname-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+#nickname-form label {
+    font-weight: 700;
+    color: var(--color-lightest);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+#nickname-form input {
+    padding: var(--spacing-sm);
+    border: 2px solid var(--color-medium);
+    border-radius: var(--radius-md);
+    background: var(--color-darkest);
+    color: var(--color-lightest);
+    font-size: 1rem;
+    transition: var(--transition-normal);
+    font-family: var(--font-primary);
+}
+
+#nickname-form input:focus {
+    outline: none;
+    border-color: var(--color-medium-light);
+    box-shadow: var(--hover-glow-cyan);
+}
+
+.player-info {
+    text-align: center;
+}
+
+.player-info p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-light);
+}
+
+.player-info strong {
+    color: var(--color-accent);
+    font-weight: 700;
+}

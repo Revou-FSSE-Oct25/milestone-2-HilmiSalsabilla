@@ -1,0 +1,415 @@
+/* responsive/media-queries.css */
+@media (max-width: 768px) {
+    :root {
+        --spacing-xs: 0.4rem;
+        --spacing-sm: 0.8rem;
+        --spacing-md: 1.2rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: var(--gradient-dark);
+        width: 100%;
+        text-align: center;
+        transition: var(--transition-normal);
+        box-shadow: var(--shadow-lg);
+        padding: var(--spacing-lg) 0;
+        gap: var(--spacing-md);
+        border-bottom: 2px solid var(--color-medium);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu a {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        min-height: 70vh;
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .hero h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .cta-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 1rem;
+    }
+
+    .about-section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .about-section h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .about-section p {
+        font-size: 1.1rem;
+    }
+
+    .games-section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .games-section h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .game-card {
+        padding: var(--spacing-md);
+    }
+
+    .game-icon {
+        font-size: 3.5rem;
+    }
+
+    .leaderboard-section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .leaderboard-section h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .leaderboard-container {
+        padding: var(--spacing-md);
+        overflow-x: auto;
+    }
+
+    .leaderboard-table {
+        font-size: 0.9rem;
+    }
+
+    .leaderboard-table th,
+    .leaderboard-table td {
+        padding: var(--spacing-xs);
+    }
+
+    .profile-section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .profile-section h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .profile-card {
+        padding: var(--spacing-md);
+    }
+
+    .main-footer {
+        padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-sm);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .notification {
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --spacing-xs: 0.3rem;
+        --spacing-sm: 0.6rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2.5rem;
+    }
+
+    .logo a {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .hero {
+        min-height: 60vh;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .hero h2 {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+        letter-spacing: 1px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .cta-button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .about-section h2,
+    .games-section h2,
+    .leaderboard-section h2,
+    .profile-section h2 {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+        letter-spacing: 1px;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .game-card {
+        padding: var(--spacing-sm);
+    }
+
+    .game-icon {
+        font-size: 3rem;
+    }
+
+    .game-card h3 {
+        font-size: clamp(1.1rem, 5vw, 1.3rem);
+    }
+
+    .game-card p {
+        font-size: 0.9rem;
+    }
+
+    .play-button {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: 0.85rem;
+    }
+
+    .leaderboard-container {
+        padding: var(--spacing-sm);
+    }
+
+    .leaderboard-table {
+        font-size: 0.8rem;
+    }
+
+    .leaderboard-table th {
+        font-size: 0.75rem;
+        padding: var(--spacing-xs);
+    }
+
+    .leaderboard-table td {
+        padding: var(--spacing-xs);
+        font-size: 0.85rem;
+    }
+
+    .profile-card {
+        padding: var(--spacing-sm);
+    }
+
+    #nickname-form input,
+    .save-button,
+    .secondary-button {
+        font-size: 0.9rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .player-info p {
+        font-size: 1rem;
+    }
+
+    .footer-section h3 {
+        font-size: clamp(1.1rem, 5vw, 1.3rem);
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 320px) {
+    :root {
+        --spacing-xs: 0.25rem;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 0.8rem;
+        --spacing-lg: 1.2rem;
+        --spacing-xl: 2rem;
+    }
+
+    .logo a {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .hero {
+        min-height: 50vh;
+    }
+
+    .hero h2 {
+        font-size: clamp(1.5rem, 12vw, 2rem);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .cta-button {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .about-section h2,
+    .games-section h2,
+    .leaderboard-section h2,
+    .profile-section h2 {
+        font-size: clamp(1.5rem, 12vw, 2rem);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .about-section p {
+        font-size: 0.9rem;
+    }
+
+    .game-card {
+        padding: var(--spacing-sm);
+    }
+
+    .game-icon {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .game-card h3 {
+        font-size: clamp(1rem, 6vw, 1.2rem);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .game-card p {
+        font-size: 0.85rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .play-button {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.75rem;
+    }
+
+    .leaderboard-container {
+        padding: var(--spacing-xs);
+    }
+
+    .leaderboard-table {
+        font-size: 0.7rem;
+    }
+
+    .leaderboard-table th {
+        font-size: 0.65rem;
+        padding: 0.25rem;
+    }
+
+    .leaderboard-table td {
+        padding: 0.25rem;
+        font-size: 0.75rem;
+    }
+
+    .profile-card {
+        padding: var(--spacing-xs);
+    }
+
+    #nickname-form label {
+        font-size: 0.8rem;
+    }
+
+    #nickname-form input,
+    .save-button,
+    .secondary-button {
+        font-size: 0.8rem;
+        padding: var(--spacing-xs);
+    }
+
+    .player-info p {
+        font-size: 0.9rem;
+    }
+
+    .footer-section h3 {
+        font-size: clamp(1rem, 6vw, 1.2rem);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.85rem;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.25rem;
+    }
+
+    .notification {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.85rem;
+        top: 10px;
+        right: 5px;
+        left: 5px;
+        max-width: calc(100% - 10px);
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .nav-menu.active {
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+}

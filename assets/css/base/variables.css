@@ -1,0 +1,39 @@
+/* base/variables.css */
+:root {
+    --color-lightest: #f4faff;
+    --color-light: #cce7ff;
+    --color-medium-light: #7dd3fc;
+    --color-medium: #3b82f6;
+    --color-medium-dark: #1e40af;
+    --color-dark: #111827;
+    --color-darkest: #0a0f1c;
+    --color-accent: #ff3b81;
+   
+    --gradient-primary: linear-gradient(135deg, var(--color-medium) 0%, var(--color-accent) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--color-medium-light) 0%, var(--color-light) 100%);
+    --gradient-dark: linear-gradient(135deg, var(--color-darkest) 0%, var(--color-dark) 100%);
+   
+    --hover-glow: 0 0 12px var(--color-accent), 0 0 24px var(--color-accent);
+    --hover-glow-cyan: 0 0 12px var(--color-medium-light), 0 0 24px var(--color-medium-light);
+   
+    --font-primary: 'Lexend', 'Segoe UI', sans-serif;
+    --font-secondary: 'Press Start 2P', monospace;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
+    
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    
+    --transition-fast: 0.15s ease-in;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.6s ease;
+    
+    --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
