@@ -201,16 +201,24 @@ function checkMatch() {
 
 // load best score
 function loadBestScore() {
-    const saved = localStorage.getItem('memoryBestScore');
-    if(saved) {
-        bestScore = parseInt(saved);
-        bestScoreDisplay.textContent = `${bestScore} moves`;
+    try {
+        const saved = localStorage.getItem('memoryBestScore');
+        if(saved) {
+            bestScore = parseInt(saved);
+            bestScoreDisplay.textContent = `${bestScore} moves`;
+        }
+    } catch (error) {
+        console.error('Error loading best score:', error)
     }
 }
 
 // save best score
 function saveBestScore() {
-    localStorage.setItem('memoryBestScore', bestScore);
+    try {
+        localStorage.setItem('memoryBestScore', bestScore);
+    } catch (error) {
+        console.error('Error saving best score:', error)
+    }
 }
 
 // endgame
