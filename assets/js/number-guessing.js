@@ -119,7 +119,7 @@ function processGuess(guess) {
         minRange = Math.max(minRange, guess + 1);
     } else {
         showHint('Too High! Try a lower number.', 'high');
-        maxRange = Math.max(maxRange, guess - 1);
+        maxRange = Math.min(maxRange, guess - 1);
     }
 
     updateRange();
@@ -157,6 +157,7 @@ function clearHistory() {
 // update range display
 function updateDisplay() {
     rangeDisplay.textContent = `${minRange} - ${maxRange}`;
+    attemptsDisplay.textContent = attemptsLeft;
 }
 
 // update range display
@@ -183,15 +184,23 @@ function winGame() {
 
 // saving best score
 function saveBestScore() {
-    localStorage.setItem('guessBestScore', bestScore);
+    try {
+        localStorage.setItem('guessBestScore', bestScore);
+    } catch (error) {
+        console.error('Error saving best score:'. error)
+    }   
 }
 
 // load best score
 function loadBestScore() {
-    const saved = localStorage.getItem('guessBestScore');
-    if(saved) {
-        bestScore = parseInt(saved);
-        bestScoreDisplay.textContent = `${bestScore} attempts`;
+    try {
+        const saved = localStorage.getItem('guessBestScore');
+        if(saved) {
+            bestScore = parseInt(saved);
+            bestScoreDisplay.textContent = `${bestScore} attempts`;
+        }
+    } catch (error) {
+        console.error('Error loading best score:', error)
     }
 }
 
