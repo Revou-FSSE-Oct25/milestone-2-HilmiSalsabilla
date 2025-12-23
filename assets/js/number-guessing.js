@@ -82,7 +82,8 @@ function handleGuess(e) {
 
     // check guess
     if(guessHistory.includes(guess)) {
-        showHint('You already guessed that number!', 'warning')
+        showHint('You already guessed that number!', 'warning');
+        return;
     }
     
     // prosses
@@ -122,7 +123,7 @@ function processGuess(guess) {
         maxRange = Math.min(maxRange, guess - 1);
     }
 
-    updateRange();
+    updateDisplay();
 }
 
 // hint message
@@ -160,11 +161,6 @@ function updateDisplay() {
     attemptsDisplay.textContent = attemptsLeft;
 }
 
-// update range display
-function updateRange() {
-    rangeDisplay.textContent = `${minRange} - ${maxRange}`;
-}
-
 // wingame
 function winGame() {
     guessInput.disabled = true;
@@ -187,7 +183,7 @@ function saveBestScore() {
     try {
         localStorage.setItem('guessBestScore', bestScore);
     } catch (error) {
-        console.error('Error saving best score:'. error)
+        console.error('Error saving best score:', error)
     }   
 }
 
