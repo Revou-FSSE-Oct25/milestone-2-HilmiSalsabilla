@@ -54,7 +54,7 @@ function setupEventListeners() {
 
     // close modal esc
     document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && !victoryModal.classList.add('hidden')) {
+        if(e.key === 'Escape' && !victoryModal.classList.contains('hidden')) {
             closeModal()
         }
     })
