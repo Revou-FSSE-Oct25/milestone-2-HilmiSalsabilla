@@ -107,16 +107,25 @@ function endGame() {
 
 // load highScore form local storage
 function loadHighScore() {
-    const savedHighScore = localStorage.getItem('clickerHighScore');
-    if(savedHighScore) {
-        highScore = parseInt(savedHighScore);
-        highScoreDisplay.textContent = highScore;
+    try {
+        const savedHighScore = localStorage.getItem('clickerHighScore');
+        if(savedHighScore) {
+            highScore = parseInt(savedHighScore);
+            highScoreDisplay.textContent = highScore;
+        }
+    } catch(error) {
+        console.error('Error loading high score:', error);
     }
 }
 
 // save highScore
 function saveHighScore() {
-    localStorage.setItem('clickerHighScore', highScore);
+    try {
+        localStorage.setItem('clickerHighScore', highScore);
+    } catch (error) {
+        console.error('Error saving high score:', error)
+    }
+    
 }
 
 // show result modal
@@ -153,7 +162,11 @@ function resetHighScore() {
     if(confirm('Are you sure you want to reset your high score?')) {
         highScore = 0;
         highScoreDisplay.textContent = highScore;
-        localStorage.removeItem('clickerHighScore');
+        try {
+            localStorage.removeItem('clickerHighScore');
+        } catch (error) {
+            console.error('Error removing high score:', error)
+        }
         alert('High score has been reset!');
     }
 }
