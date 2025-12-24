@@ -1,0 +1,74 @@
+/* games/components/game-controls.css */
+.back-button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--gradient-primary);
+    color: var(--color-lightest);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    transition: var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border: 2px solid transparent;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+    box-shadow: var(--hover-glow);
+    border-color: var(--color-lightest);
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.control-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-primary);
+}
+
+.control-button.primary {
+    background: var(--gradient-primary);
+    color: var(--color-lightest);
+    border: 2px solid transparent;
+}
+
+.control-button.primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-glow);
+    border-color: var(--color-lightest);
+}
+
+.control-button.secondary {
+    background: transparent;
+    border: 2px solid var(--color-medium);
+    color: var(--color-medium);
+}
+
+.control-button.secondary:hover:not(:disabled) {
+    background: var(--color-medium);
+    color: var(--color-lightest);
+}
+
+.control-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.control-button:active:not(:disabled) {
+    transform: scale(0.98);
+}

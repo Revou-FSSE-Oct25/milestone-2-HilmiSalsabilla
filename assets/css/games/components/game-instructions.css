@@ -1,0 +1,28 @@
+/* games/components/game-instructions.css */
+.game-instructions {
+    background: var(--color-dark);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--color-medium-dark);
+}
+
+.game-instructions h3 {
+    color: var(--color-medium-light);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.game-instructions ul {
+    list-style-position: inside;
+    color: var(--color-light);
+    line-height: 1.8;
+}
+
+.game-instructions li {
+    margin-bottom: var(--spacing-xs);
+}

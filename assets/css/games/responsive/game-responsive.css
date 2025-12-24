@@ -1,0 +1,85 @@
+/* games/responsive/game-responsive.css */
+@media (max-width: 768px) {
+    .game-content h2 {
+        font-size: 2rem;
+    }
+
+    .game-stats {
+        flex-direction: column;
+    }
+
+    .stat-item {
+        width: 100%;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xs);
+    }
+
+    .card-front,
+    .card-back {
+        font-size: 2rem;
+    }
+
+    .battle-display {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .vs-text {
+        transform: rotate(90deg);
+    }
+
+    .choice-buttons {
+        gap: var(--spacing-sm);
+    }
+
+    .choice-button {
+        min-width: 100px;
+        padding: var(--spacing-sm);
+    }
+
+    .choice-icon {
+        font-size: 2rem;
+    }
+
+    #game-canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .modal-content {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: var(--spacing-sm);
+    }
+
+    .game-area {
+        padding: var(--spacing-sm);
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .click-button {
+        width: 150px;
+        height: 150px;
+        font-size: 1.2rem;
+    }
+
+    .choice-display {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .game-content h2 {
+        font-size: 1.5rem;
+    }
+}

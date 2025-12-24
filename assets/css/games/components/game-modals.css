@@ -1,0 +1,116 @@
+/* games/components/game-modals.css */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: var(--gradient-dark);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: var(--shadow-lg), var(--hover-glow);
+    animation: slideUp 0.3s ease;
+    border: 3px solid var(--color-medium);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content h3 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-light);
+}
+
+.modal-content strong {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.new-record {
+    color: var(--color-medium-light);
+    font-weight: 900;
+    font-size: 1.3rem;
+    margin: var(--spacing-sm) 0;
+    animation: bounce 1s ease infinite;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.modal-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.modal-actions .control-button {
+    flex: 1;
+    min-width: 150px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--color-medium);
+    color: var(--color-light);
+    font-size: 1.5rem;
+}
+
+.modal-close:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-lightest);
+    transform: rotate(90deg);
+    box-shadow: var(--hover-glow);
+}

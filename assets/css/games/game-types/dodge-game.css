@@ -1,0 +1,9 @@
+/* games/game-types/dodge-game.css */
+#game-canvas {
+    display: block;
+    margin: var(--spacing-lg) auto;
+    background: var(--color-darkest);
+    border: 3px solid var(--color-medium);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg), inset 0 0 20px rgba(0, 0, 0, 0.5);
+}

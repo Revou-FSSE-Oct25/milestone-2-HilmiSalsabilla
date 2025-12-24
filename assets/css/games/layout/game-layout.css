@@ -1,0 +1,52 @@
+/* games/layout/game-layout.css */
+.game-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-darkest);
+}
+
+.game-header {
+    background: var(--gradient-dark);
+    padding: var(--spacing-sm) 0;
+    box-shadow: var(--shadow-md);
+    border-bottom: 2px solid var(--color-medium);
+}
+
+.game-container {
+    flex: 1;
+    padding: var(--spacing-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.game-content h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.game-area {
+    background: var(--color-dark);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--color-medium-dark);
+}
+
+.game-footer {
+    background: var(--color-darkest);
+    padding: var(--spacing-md);
+    text-align: center;
+    color: var(--color-light);
+    margin-top: auto;
+    border-top: 2px solid var(--color-medium-dark);
+}

@@ -1,0 +1,20 @@
+/* games/games-main.css */
+
+/* layout */
+@import './layout/game-layout.css';
+
+/* components */
+@import './components/game-controls.css';
+@import './components/game-stats.css';
+@import './components/game-instructions.css';
+@import './components/game-modals.css';
+
+/* game-types */
+@import './game-types/clicker-game.css';
+@import './game-types/guess-game.css';
+@import './game-types/rps-game.css';
+@import './game-types/memory-game.css';
+@import './game-types/dodge-game.css';
+
+/* responsive */
+@import './responsive/game-responsive.css';
