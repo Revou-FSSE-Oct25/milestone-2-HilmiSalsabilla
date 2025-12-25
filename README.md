@@ -53,8 +53,43 @@ These technologies power the interactive experience you see live.
 milestone-2-HilmiSalsabilla/
 ├── assets/
 │   ├── css/
-│   │   ├── index.css
-│   │   └── games.css
+│   │   ├── games/
+|   |   │   ├── layout/
+|   |   │   │   └── game-layout.css
+|   |   │   ├── components/
+|   |   │   │   ├── game-controls.css
+|   |   │   │   ├── game-stats.css
+|   |   │   │   ├── game-instructions.css
+|   |   │   │   └── game-modals.css
+|   |   │   ├── game-types/
+|   |   │   │   ├── clicker-game.css
+|   |   │   │   ├── guess-game.css
+|   |   │   │   ├── rps-game.css
+|   |   │   │   ├── memory-game.css
+|   |   │   │   └── dodge-game.css
+|   |   │   ├── responsive/
+|   |   │   │   └── game-responsive.css
+|   |   │   └── games-main.css
+|   |   ├── base/
+|   |   │   ├── variables.css
+|   |   │   ├── reset.css
+|   |   │   └── typography.css
+|   |   ├── components/
+|   |   │   ├── buttons.css
+|   |   │   ├── cards.css
+|   |   │   ├── navigation.css
+|   |   │   ├── footer.css
+|   |   │   ├── modals.css
+|   |   │   └── forms.css
+|   |   ├── layout/
+|   |   │   ├── hero.css
+|   |   │   └── sections.css
+|   |   ├── utilities/
+|   |   │   ├── animations.css
+|   |   │   └── helpers.css
+|   |   ├── responsive/
+|   |   │   └── media-queries.css
+|   |   └── main.css
 │   ├── js/
 |   |   ├── index.js
 |   |   ├── clicker-game.js
@@ -62,6 +97,9 @@ milestone-2-HilmiSalsabilla/
 |   |   ├── rock-paper-scissors.js
 |   |   ├── memory-game.js
 |   |   └── dodge-game.js
+|   └── preview/
+|       ├── index.png
+|       └── speed-clicker.png
 ├── games/
 │   ├── clicker-game.html
 │   ├── number-guessing.html
