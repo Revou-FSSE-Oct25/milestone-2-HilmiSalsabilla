@@ -111,13 +111,6 @@ function loadLeaderboard() {
 
 function collectLeaderboardData() {
     const data = [];
-    const playerNickname = localStorage.getItem('playerNickname') || 'Anonymous';
-
-    try {
-        playerNickname = localStorage.getItem('playerNickname') || 'Anonymous';
-    } catch (error) {
-        console.error('Error reading nickname:', error);
-    }
     
     // helper function to safely get localStorage item
     const getScore = (key) => {
@@ -128,6 +121,14 @@ function collectLeaderboardData() {
             return null;
         }
     };
+    
+    // get player nickname with error handling
+    let playerNickname = 'Anonymous';
+    try {
+        playerNickname = localStorage.getItem('playerNickname') || 'Anonymous';
+    } catch (error) {
+        console.error('Error reading nickname:', error);
+    }
 
     // clicker game
     const clickerScore = getScore(games.clicker.storageKey);
