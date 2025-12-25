@@ -14,17 +14,17 @@ RevoFun Gaming is a lightweight, browser-based gaming platform featuring fun cas
 
 ## 📁 Table of Contents
 
-- 🎮 [RevoFun Gaming](#-revofun-gaming)
-- 🚀 [Live Demo](#-live-demo)
-- 🧠 [About the Project](#-about-the-project)
-- 🎯 [Features](#-features)
-- 👨‍💻 [Built With](#-built-with)
-- 📂 [Project Structure](#-project-structure)
-- 📦 [Installation](#-installation)
-- 🛠️ [Usage](#️-usage)
-- 🤝 [Contributing](#-contributing)
-- 📄 [License](#-license)
-- 📫 [Contact](#-contact)
+- [🎮 RevoFun Gaming](#-revofun-gaming)
+- [🚀 Live Demo](#-live-demo)
+- [🧠 About the Project](#-about-the-project)
+- [🎯 Features](#-features)
+- [👨‍💻 Built With](#-built-with)
+- [📂 Project Structure](#-project-structure)
+- [📦 Installation](#-installation)
+- [🛠️ Usage](#️-usage)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [📫 Contact](#-contact)
 
 ## 🎯 Features
 
@@ -113,10 +113,10 @@ milestone-2-HilmiSalsabilla/
 ## 🖼️ Website Preview
 
 ### Landing Page
-![Landing Page Preview](/assets/preview/index.png)
+![Landing Page Preview](/assets/preview/index.webp)
 
 ### Speed Clicker Game Page
-![Speed Clicker Game Preview](/assets/preview/speed-clicker.png)
+![Speed Clicker Game Preview](/assets/preview/speed-clicker.webp)
 
 ## 📦 Installation
 
