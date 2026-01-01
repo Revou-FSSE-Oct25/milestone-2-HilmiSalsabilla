@@ -24,4 +24,4 @@
 /* responsive */
 @import './responsive/media-queries.css';
 
-@import './games.css';
+@import '../css/games/games-main.css';
