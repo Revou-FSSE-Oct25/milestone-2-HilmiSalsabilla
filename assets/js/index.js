@@ -1,10 +1,15 @@
 // games config
-const games = {
-    clicker: { name: 'Speed Clicker', storageKey: 'clickerHighScore' },
-    guess: { name: 'Number Guessing', storageKey: 'guessBestScore' },
-    rps: { name: 'Rock Paper Scissors', storageKey: 'rpsHighScore' },
-    memory: { name: 'Memory Cards', storageKey: 'memoryBestScore' },
-    dodge: { name: 'Dodge Master', storageKey: 'dodgeHighScore' }
+const GAMES = {
+    clicker: { name: 'Speed Clicker', key: 'clickerHighScore', unit: 'clicks', inverted: false },
+    dodge: { name: 'Dodge Master', key: 'dodgeHighScore', unit: 'points', inverted: false },
+    memory: { name: 'Memory Cards', key: 'memoryBestScore', unit: 'moves', inverted: true },
+    guess: { name: 'Number Guessing', key: 'guessBestScore', unit: 'attempts', inverted: true },
+    rps: { name: 'Rock Paper Scissors', key: 'rpsHighScore', unit: 'wins', inverted: false }
+};
+
+const STORAGE_KEYS = {
+    USERS: 'revofun_users',
+    CURRENT_USER_ID: 'revofun_current_user_id'
 };
 
 // domelemets
@@ -15,6 +20,8 @@ const playerNameDisplay = document.getElementById('player-name');
 const changeNicknameBtn = document.getElementById('change-nickname');
 const leaderboardBody = document.getElementById('leaderboard-body');
 
+let currentUser = null;
+
 // setup event listeners
 function setupEventListeners() {
     // nickname-form submission
@@ -24,23 +31,153 @@ function setupEventListeners() {
     // update leaderboard
     document.addEventListener('visibilitychange', () => {
         if (!document.hidden) {
+            syncCurrentUserScores();
             loadLeaderboard();
         }
     });
 }
 
-// load player bickname from local storage
-function loadPlayerNickname() {
+// user management
+// get all users from localStorage
+function getAllUsers() {
     try {
-        const savedNickname = localStorage.getItem('playerNickname');
-        if (savedNickname) {
-            showPlayerInfo(savedNickname);
-        } else {
-            showNicknameForm();
-        }
+        const usersJSON = localStorage.getItem(STORAGE_KEYS.USERS);
+        return usersJSON ? JSON.parse(usersJSON) : [];
     } catch (error) {
-        console.error('Error loading nickname:', error);
+        console.error('Error loading users:', error);
+        return [];
+    }
+}
+
+// save all users to localStorage
+function saveAllUsers(users) {
+    try {
+        localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+        return true;
+    } catch (error) {
+        console.error('Error saving users:', error);
+        return false;
+    }
+}
+
+// create new user
+function createUser(nickname) {
+    return {
+        id: generateUserId(),
+        playerNickname: nickname,
+        clickerHighScore: 0,
+        dodgeHighScore: 0,
+        memoryBestScore: null,
+        guessBestScore: null,
+        rpsHighScore: 0,
+        createdAt: new Date().toLocaleString()
+    }
+}
+
+// generate unique id
+function generateUserId() {
+    return `user_${Date.now()}_${Math.random().toString(36)}`;
+}
+
+// find user by id
+function findUserById(userId) {
+    const users = getAllUsers();
+    return users.find(user => user.id === userId);
+}
+
+// find user by nickname
+function findUserByNickname(nickname) {
+    const users = getAllUsers();
+    return users.find(user => user.playerNickname.toLowerCase() === nickname.toLowerCase());
+}
+
+// update user data
+function updateUser(userId, updates) {
+    const users = getAllUsers();
+    const userIndex = users.findIndex(user => user.id === userId);
+
+    if(userIndex !== -1) {
+        users[userIndex] = { ...users[userIndex], ...updates };
+        saveAllUsers(users);
+        return users[userIndex];
+    }
+    return null;
+}
+
+// set current user
+function setCurrentUser(userId) {
+    try {
+        localStorage.setItem(STORAGE_KEYS.CURRENT_USER_ID, userId);
+        currentUser = findUserById(userId);
+        return true;
+    } catch (error) {
+        console.error('Error setting current user:', error);
+        return false;
+    }
+}
+
+// load current user
+function loadCurrentUser() {
+    try {
+        const userId = localStorage.getItem(STORAGE_KEYS.CURRENT_USER_ID);
+
+        if(userId) {
+            currentUser = findUserById(userId);
+            if(currentUser) {
+                syncCurrentUserScores();
+                showPlayerInfo(currentUser.playerNickname);
+                return;
+            }
+        }
+
         showNicknameForm();
+    } catch (error) {
+        console.error('Error loading current user:', error);
+        showNicknameForm();
+    }
+}
+
+// sync localStorage from individuak
+function syncCurrentUserScores() {
+    if(!currentUser) return;
+
+    const updates = {};
+    let hasChanges = false;
+
+    // sync every game
+    Object.values(GAMES).forEach(game => {
+        try {
+            const scoreStr = localStorage.getItem(game.key);
+            if(scoreStr !== null) {
+                const score = parseInt(scoreStr);
+                const currentScore = currentUser[game.key];
+
+                // update if score is better
+                if(game.inverted) {
+                    // lower is better
+                    if(currentScore === null || score < currentScore) {
+                        updates[game.key] = score;
+                        hasChanges = true;
+                    }
+                } else {
+                    // higher is better
+                    if(score > currentScore) {
+                        updates[game.key] = score;
+                        hasChanges = true;
+                    }
+                }
+            }
+        } catch (error) {
+            console.error(`Error syncing ${game.key}:`, error);
+        }
+    });
+
+    // update user if there's changes
+    if(hasChanges) {
+        const updatedUser = updateUser(currentUser.id, updates);
+        if(updatedUser) {
+            currentUser = updatedUser;
+        }
     }
 }
 
@@ -60,20 +197,41 @@ function handleNicknameSave(e) {
         return;
     }
 
-    try {
-        localStorage.setItem('playerNickname', nickname);
-        showNotification(`Welcome, ${nickname}!`, 'success');
-        showPlayerInfo(nickname);
-        loadLeaderboard();
-    } catch (error) {
-        console.error('Error saving nickname:', error);
-        showNotification('Failed to save nickname. Please try again.', 'error');
+    // check if the name already exist
+    const existingUser = findUserByNickname(nickname);
+
+    if(existingUser) {
+        // user exist, show them
+        setCurrentUser(existingUser.id);
+        showNotification(`Welcome back, ${nickname}!`, 'success');
+    } else {
+        // create new user
+        const newUser = createUser(nickname);
+        const users = getAllUsers();
+        users.push(newUser);
+
+        if(saveAllUsers(users)) {
+            setCurrentUser(newUser.id);
+            showNotification(`Welcome, ${nickname}!`, 'success');
+        } else {
+            showNotification('Failed to create account. Please try again.', 'error');
+            return;
+        }
     }
+
+    showPlayerInfo(nickname);
+    loadLeaderboard();
 }
 
 // chenge nickname
 function handleNicknameChange() {
-    if(confirm('Are you sure you want to change your nickname?')) {
+    if(confirm('Are you sure you want to switch user?')) {
+        currentUser = null;
+        try {
+            localStorage.removeItem(STORAGE_KEYS.CURRENT_USER_ID);
+        } catch (error) {
+            console.error('Error removing current user:', error);
+        }
         showNicknameForm();
     }
 }
@@ -102,80 +260,50 @@ function loadLeaderboard() {
         return;
     }
 
-    // sort score desc
-    leaderboardData.sort((a,b) => b.score - a.score);
+    // sort score (descending for normal, ascending for inverted)
+    leaderboardData.sort((a,b) => {
+        if(a.inverted) {
+            return a.score - b.score; // lower is better
+        } else {
+            return b.score - a.score; // higher is better
+        }
+    });
     // take top 10
     const topScores = leaderboardData.slice(0, 10);
+    console.log('Top scores to display:', topScores); // debug log
     displayLeaderboard(topScores);
 }
 
+// collect leaderboard data from all users
 function collectLeaderboardData() {
     const data = [];
-    
-    // helper function to safely get localStorage item
-    const getScore = (key) => {
-        try {
-            return localStorage.getItem(key);
-        } catch (error) {
-            console.error(`Error reading ${key}:`, error);
-            return null;
-        }
-    };
-    
-    // get player nickname with error handling
-    let playerNickname = 'Anonymous';
-    try {
-        playerNickname = localStorage.getItem('playerNickname') || 'Anonymous';
-    } catch (error) {
-        console.error('Error reading nickname:', error);
-    }
+    const users = getAllUsers();
 
-    // clicker game
-    const clickerScore = getScore(games.clicker.storageKey);
-    if(clickerScore) {
-        data.push({
-            player: playerNickname,
-            game: games.clicker.name,
-            score: parseInt(clickerScore),
-            unit: 'clicks'
+    console.log('Collecting leaderboard data from users:', users); // debug log
+
+    users.forEach(user => {
+        Object.entries(GAMES).forEach(([gameId, game]) => {
+            const score = user[game.key];
+            
+            console.log(`User: ${user.playerNickname}, Game: ${game.name}, Score: ${score}`); // debug log
+            
+            // only include if score is valid
+            // for inverted games (memory, guess), allow null check but still need valid score
+            if (score !== null && score !== undefined && score !== 0) {
+                data.push({
+                    player: user.playerNickname,
+                    userId: user.id,
+                    game: game.name,
+                    score: score,
+                    unit: game.unit,
+                    inverted: game.inverted,
+                    isCurrentUser: currentUser && user.id === currentUser.id
+                });
+            }
         });
-    }
+    });
 
-    // guess number agme
-    const guessScore = getScore(games.guess.storageKey);
-    if (guessScore) {
-        data.push({
-            player: playerNickname,
-            game: games.guess.name,
-            score: parseInt(guessScore),
-            unit: 'attempts',
-            inverted: true
-        });
-    }
-
-    // memory cards game
-    const memoryScore = getScore(games.memory.storageKey);
-    if (memoryScore) {
-        data.push({
-            player: playerNickname,
-            game: games.memory.name,
-            score: parseInt(memoryScore),
-            unit: 'moves',
-            inverted: true
-        });
-    }
-
-    // dodge game
-    const dodgeScore = getScore(games.dodge.storageKey);
-    if (dodgeScore) {
-        data.push({
-            player: playerNickname,
-            game: games.dodge.name,
-            score: parseInt(dodgeScore),
-            unit: 'points'
-        });
-    }
-
+    console.log('Leaderboard data collected:', data); // debug log
     return data;
 }
 
@@ -185,9 +313,15 @@ function displayLeaderboard(data) {
 
     data.forEach((entry, index) => {
         const row = document.createElement('tr');
+
+        // highlight current user
+        if(entry.isCurrentUser) {
+            row.classList.add('current-user-row');
+        }
+
         row.innerHTML = `
             <td><strong>#${index + 1}</strong></td>
-            <td>${escapeHtml(entry.player)}</td>
+            <td>${escapeHtml(entry.player)}${entry.isCurrentUser ? ' <span class="you-badge">YOU</span>' : ''}</td>
             <td>${escapeHtml(entry.game)}</td>
             <td><strong>${entry.score}</strong> ${entry.unit}</td>
         `;
@@ -211,7 +345,7 @@ function displayEmptyLeaderboard() {
         <tr>
             <td colspan="4" class="no-data">No scores yet. Be the first to play!</td>
         </tr>
-    `
+    `;
 }
 
 // prevent xss
@@ -224,55 +358,40 @@ function escapeHtml(text) {
 // show notification
 function showNotification(message, type = 'info') {
     const existing = document.querySelector('.notification');
-    if(existing) {
-        existing.remove();
-    }
-
-    // create notification element
+    if (existing) existing.remove();
+    
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
+    notification.setAttribute('role', 'alert');
     notification.setAttribute('aria-live', 'polite');
-
-    // add to page
+    
     document.body.appendChild(notification);
-
-    // trigger animation
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 10);
-
-    // remove after 3s
+    
+    setTimeout(() => notification.classList.add('show'), 10);
+    
     setTimeout(() => {
         notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
+        setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
 
 // setup smooth scrolling for navigation
 function setupSmoothScrolling() {
     const navLinks = document.querySelectorAll('a[href^="#"]');
-
+    
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-
-            // skip if its just #
             if (href === '#') return;
             
             const target = document.querySelector(href);
-            
             if (target) {
                 e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        })
-    })
+        });
+    });
 }
 
 // add animation on scroll for game cards
@@ -363,8 +482,8 @@ function handleResize() {
 
 // intialization
 function init() {
+    loadCurrentUser();
     setupEventListeners();
-    loadPlayerNickname();
     loadLeaderboard();
     setupSmoothScrolling();
 }
